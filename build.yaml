@@ -1,15 +1,15 @@
 ---
-name: "Template"
-guid: "eb5d7894-8eef-4b36-aa6f-5d124e828ce1"
+name: "Cover Art Archive"
+guid: "8119f3c6-cfc2-4d9c-a0ba-028f1d93e526"
 version: "1.0.0.0"
 targetAbi: "10.6.0.0"
-overview: "Short description about your plugin"
+overview: "MusicBrainz Cover Art Archive"
 description: >
-  This is a longer description that can span more than one
-  line and include details about your plugin.
+  This plugin provides images from the Cover Art Archive https://musicbrainz.org/doc/Cover_Art_Archive
+  and depends on the MusicBrainz metadata provider to know what images belong where
 category: "General"
 owner: "jellyfin"
 artifacts:
-- "Jellyfin.Plugin.Template.dll"
+- "Jellyfin.Plugin.CoverArtArchive.dll"
 changelog: >
   changelog

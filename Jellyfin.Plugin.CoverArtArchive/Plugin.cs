@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
-using Jellyfin.Plugin.Template.Configuration;
+using Jellyfin.Plugin.CoverArtArchive.Configuration;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Common.Plugins;
 using MediaBrowser.Model.Plugins;
 using MediaBrowser.Model.Serialization;
 
-namespace Jellyfin.Plugin.Template
+namespace Jellyfin.Plugin.CoverArtArchive
 {
     public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
     {
-        public override string Name => "Template";
+        public override string Name => "Cover Art Archive";
 
-        public override Guid Id => Guid.Parse("eb5d7894-8eef-4b36-aa6f-5d124e828ce1");
+        public override Guid Id => Guid.Parse("8119f3c6-cfc2-4d9c-a0ba-028f1d93e526");
 
         public Plugin(IApplicationPaths applicationPaths, IXmlSerializer xmlSerializer) : base(applicationPaths, xmlSerializer)
         {
