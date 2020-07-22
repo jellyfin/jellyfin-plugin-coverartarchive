@@ -1,13 +1,13 @@
 ---
 name: "Cover Art Archive"
 guid: "8119f3c6-cfc2-4d9c-a0ba-028f1d93e526"
-version: "1.0.0.0"
+version: "1.0.0.3"
 targetAbi: "10.6.0.0"
 overview: "MusicBrainz Cover Art Archive"
 description: >
   This plugin provides images from the Cover Art Archive https://musicbrainz.org/doc/Cover_Art_Archive
   and depends on the MusicBrainz metadata provider to know what images belong where
-category: "General"
+category: "Metadata"
 owner: "jellyfin"
 artifacts:
 - "Jellyfin.Plugin.CoverArtArchive.dll"
