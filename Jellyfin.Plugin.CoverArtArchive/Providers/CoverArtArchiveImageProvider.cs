@@ -59,10 +59,10 @@ namespace Jellyfin.Plugin.CoverArtArchive.Providers {
 
     public class CoverArtArchiveImageProvider : IRemoteImageProvider {
         private readonly ILogger<CoverArtArchiveImageProvider> _logger;
-        private readonly IHttpClient _httpClient;
+        private readonly IHttpClientFactory _httpClientFactory;
         private readonly JsonSerializerOptions _serializerOptions;
-        public CoverArtArchiveImageProvider(IHttpClient httpClient, ILogger<CoverArtArchiveImageProvider> logger) {
-            _httpClient = httpClient;
+        public CoverArtArchiveImageProvider(IHttpClientFactory httpClientFactory, ILogger<CoverArtArchiveImageProvider> logger) {
+            _httpClientFactory = httpClientFactory;
             _logger = logger;
 
             _serializerOptions = new JsonSerializerOptions {
@@ -79,27 +79,22 @@ namespace Jellyfin.Plugin.CoverArtArchive.Providers {
             return new[] { ImageType.Primary, ImageType.Box, ImageType.BoxRear, ImageType.Disc };
         }
 
-        public Task<HttpResponseInfo> GetImageResponse(string url, CancellationToken cancellationToken) {
+        public async Task<HttpResponseMessage> GetImageResponse(string url, CancellationToken cancellationToken) {
             _logger.LogDebug("GetImageResponse({url})", url);
-            return _httpClient.GetResponse(new HttpRequestOptions {
-                UserAgent = Constants.UserAgent,
-                CancellationToken = cancellationToken,
-                Url = url
-            });
+            var httpClient = _httpClientFactory.CreateClient(NamedClient.Default);
+            return await httpClient.GetAsync(url).ConfigureAwait(false);
         }
 
         private async Task<IEnumerable<RemoteImageInfo>> _getImages(string url, CancellationToken cancellationToken) {
             _logger.LogDebug("_getImages({url})", url);
             List<RemoteImageInfo> list = new List<RemoteImageInfo>();
 
-            var response = await _httpClient.SendAsync(
-                new HttpRequestOptions {
-                    Url = url,
-                },
-                HttpMethod.Get
-            );
+            var httpClient = _httpClientFactory.CreateClient(NamedClient.Default);
+            var response = await httpClient.GetAsync(url).ConfigureAwait(false);
+
             if (response.StatusCode == HttpStatusCode.OK) {
-                ApiRelease release = await JsonSerializer.DeserializeAsync<ApiRelease>(response.Content, _serializerOptions);
+                await using var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+                ApiRelease release = await JsonSerializer.DeserializeAsync<ApiRelease>(stream, _serializerOptions);
 
                 foreach (ApiImage image in release.Images) {
                     _logger.LogDebug(image.Types.ToString());
@@ -151,7 +146,7 @@ namespace Jellyfin.Plugin.CoverArtArchive.Providers {
                     }
                 }
             } else {
-                _logger.LogWarning("Got HTTP {} - {}", response.StatusCode, response.ResponseUrl);
+                _logger.LogWarning("Got HTTP {} - {}", response.StatusCode, response.Headers.Location);
             }
             return list;
         }
