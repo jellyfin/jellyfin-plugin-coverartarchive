@@ -21,6 +21,10 @@ Fetches images from the Cover Art Archive
 
 Depends on the MusicBrainz IDs being present in the library
 
+## Installation
+
+[See the official documentation for install instructions](https://jellyfin.org/docs/general/server/plugins/index.html#installing).
+
 ## Build
 
 1. To build this plugin you will need [.Net 5.x](https://dotnet.microsoft.com/download/dotnet/5.0).
