@@ -42,8 +42,13 @@ namespace Jellyfin.Plugin.CoverArtArchive
             {
                 new PluginPageInfo
                 {
-                    Name = Name,
-                    EmbeddedResourcePath = $"{GetType().Namespace}.Configuration.configPage.html"
+                    Name = "coverartarchive",
+                    EmbeddedResourcePath = GetType().Namespace + ".Web.coverartarchive.html",
+                },
+                new PluginPageInfo
+                {
+                    Name = "coverartarchivejs",
+                    EmbeddedResourcePath = GetType().Namespace + ".Web.coverartarchive.js"
                 }
             };
         }

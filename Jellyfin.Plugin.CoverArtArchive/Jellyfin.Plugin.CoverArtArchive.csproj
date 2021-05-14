@@ -24,10 +24,12 @@
     <PackageReference Include="SmartAnalyzers.MultithreadingAnalyzer" Version="1.1.31" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.*" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <None Remove="Configuration\configPage.html" />
-    <EmbeddedResource Include="Configuration\configPage.html" />
+    <None Remove="Web\coverartarchive.html" />
+    <None Remove="Web\coverartarchive.js" />
+    <EmbeddedResource Include="Web\coverartarchive.html" />
+    <EmbeddedResource Include="Web\coverartarchive.js" />
   </ItemGroup>
 
 </Project>

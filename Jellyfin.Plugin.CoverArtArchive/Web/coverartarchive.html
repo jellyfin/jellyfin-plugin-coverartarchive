@@ -1,0 +1,33 @@
+<div id="CoverArtArchiveConfigPage" data-role="page" class="page type-interior pluginConfigurationPage" data-controller="__plugin/coverartarchivejs">
+    <div data-role="content">
+        <div class="content-primary">
+            <form id="CoverArtArchiveConfigForm">
+                <div class="selectContainer">
+                    <select is="emby-select" id="Options" label="Several Options">
+                        <option value="OneOption">One Option</option>
+                        <option value="AnotherOption">Another Option</option>
+                    </select>
+                </div>
+                <div class="inputContainer">
+                    <input is="emby-input" type="number" id="AnInteger" label="An Integer" min="0" />
+                    <div class="fieldDescription">A Description</div>
+                </div>
+                <div class="checkboxContainer checkboxContainer-withDescripton">
+                    <label>
+                        <input is="emby-checkbox" type="checkbox" id="TrueFalseSetting" name="TrueFalseCheckBox" />
+                        <span>A Checkbox</span>
+                    </label>
+                </div>
+                <div class="inputContainer">
+                    <input is="emby-input" type="text" id="AString" label="A String" />
+                    <div class="fieldDescription">Another Description</div>
+                </div>
+                <div>
+                    <button is="emby-button" type="submit" class="raised button-submit block">
+                        <span>Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
