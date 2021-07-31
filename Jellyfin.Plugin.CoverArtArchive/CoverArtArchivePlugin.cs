@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using Jellyfin.Plugin.CoverArtArchive.Configuration;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Common.Plugins;
-using MediaBrowser.Model.Plugins;
 using MediaBrowser.Model.Serialization;
 
 namespace Jellyfin.Plugin.CoverArtArchive
@@ -11,7 +9,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
     /// <summary>
     /// The cover art plugin.
     /// </summary>
-    public class CoverArtArchivePlugin : BasePlugin<PluginConfiguration>, IHasWebPages
+    public class CoverArtArchivePlugin : BasePlugin<PluginConfiguration>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CoverArtArchivePlugin"/> class.
@@ -34,18 +32,5 @@ namespace Jellyfin.Plugin.CoverArtArchive
         /// Gets the plugin instance.
         /// </summary>
         public static CoverArtArchivePlugin? Instance { get; private set; }
-
-        /// <inheritdoc />
-        public IEnumerable<PluginPageInfo> GetPages()
-        {
-            return new[]
-            {
-                new PluginPageInfo
-                {
-                    Name = Name,
-                    EmbeddedResourcePath = $"{GetType().Namespace}.Configuration.configPage.html"
-                }
-            };
-        }
     }
 }
