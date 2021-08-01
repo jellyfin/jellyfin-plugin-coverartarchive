@@ -112,7 +112,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
                     {
                         var release = await _coverArtClient.FetchGroupReleaseAsync(Guid.Parse(musicBrainzGroupId)).ConfigureAwait(false);
 
-                        var frontImage = release.Images.SingleOrDefault(image => image.Types == CoverArtType.Front);
+                        var frontImage = release.Images.FirstOrDefault(image => image.Types == CoverArtType.Front);
 
                         if (frontImage is not null)
                         {
