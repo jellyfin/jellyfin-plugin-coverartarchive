@@ -4,8 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using MediaBrowser.Common.Net;
@@ -27,7 +25,6 @@ namespace Jellyfin.Plugin.CoverArtArchive
     {
         private readonly ILogger<CoverArtArchiveImageProvider> _logger;
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly JsonSerializerOptions _serializerOptions;
 
         private readonly CoverArt _coverArtClient;
 
@@ -42,15 +39,6 @@ namespace Jellyfin.Plugin.CoverArtArchive
         {
             _httpClientFactory = httpClientFactory;
             _logger = logger;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true,
-                Converters =
-                {
-                    new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)
-                }
-            };
 
             _coverArtClient = new CoverArt("Jellyfin Cover Art Archive Plugin", Assembly.GetExecutingAssembly().GetName().Version!.ToString(), "apps@jellyfin.org");
         }
@@ -76,7 +64,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
         public async Task<HttpResponseMessage> GetImageResponse(string url, CancellationToken cancellationToken)
         {
             // TODO: Should probably also use the MusicBrainz library for this.
-            _logger.LogDebug("GetImageResponse({Url})", url);
+            _logger.LogDebug("Getting image from {Url}", url);
             var httpClient = _httpClientFactory.CreateClient(NamedClient.Default);
             return await httpClient.GetAsync(new Uri(url), cancellationToken).ConfigureAwait(false);
         }
@@ -102,7 +90,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
                             ProviderName = Name,
                             Url = frontImage.Location!.ToString(),
                             Type = ImageType.Primary,
-                            ThumbnailUrl = ((frontImage.Thumbnails.Large ?? frontImage.Thumbnails.Small)!).ToString(),
+                            ThumbnailUrl = (frontImage.Thumbnails.Large ?? frontImage.Thumbnails.Small)?.ToString(),
                             CommunityRating = frontImage.Approved ? 1 : 0,
                             RatingType = RatingType.Score,
                         });
@@ -133,7 +121,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
                                 ProviderName = Name,
                                 Url = frontImage.Location!.ToString(),
                                 Type = ImageType.Primary,
-                                ThumbnailUrl = ((frontImage.Thumbnails.Large ?? frontImage.Thumbnails.Small)!).ToString(),
+                                ThumbnailUrl = (frontImage.Thumbnails.Large ?? frontImage.Thumbnails.Small)?.ToString(),
                                 CommunityRating = frontImage.Approved ? 1 : 0,
                                 RatingType = RatingType.Score,
                             });
@@ -142,7 +130,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
                     catch (WebException e)
                     {
                         HttpWebResponse response = (HttpWebResponse)e.Response!;
-                        _logger.LogWarning("Got HTTP {StatusCode} when getting image for MusicBrainz release group {ReleaseId}", response.StatusCode, musicBrainzGroupId);
+                        _logger.LogWarning("Got HTTP {StatusCode} when getting image for MusicBrainz release group {ReleaseGroupId}", response.StatusCode, musicBrainzGroupId);
                     }
                 }
             }
