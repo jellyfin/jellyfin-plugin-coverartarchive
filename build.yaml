@@ -1,8 +1,8 @@
 name: "Cover Art Archive"
 guid: "8119f3c6-cfc2-4d9c-a0ba-028f1d93e526"
 imageUrl: "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-coverartarchive.png"
-version: "3"
-targetAbi: "10.7.0.0"
+version: "4"
+targetAbi: "10.8.0.0"
 framework: "net6.0"
 overview: "MusicBrainz Cover Art Archive"
 description: >
@@ -13,14 +13,5 @@ owner: "jellyfin"
 artifacts:
   - "Jellyfin.Plugin.CoverArtArchive.dll"
 changelog: |2-
-  ### New features and improvements ###
-  - chore: plugin images (#5) @h1dden-da3m0n
-
-  ### Dependency updates ###
-  - chore(deps): bump release-drafter/release-drafter from v5.14.0 to v5.15.0 (#4) @dependabot
-
-  ### CI & build changes ###
-  - Update ci (#9) @h1dden-da3m0n
-  - Create release prep PR on release draft update (#7) @oddstr13
-  - Add analyzers and remove all warnings (#3) @crobibero
-  - Let there be CI (#2) @oddstr13
+  ### Code or Repo Maintenance ###
+  - 10.8 support (#13) @crobibero
