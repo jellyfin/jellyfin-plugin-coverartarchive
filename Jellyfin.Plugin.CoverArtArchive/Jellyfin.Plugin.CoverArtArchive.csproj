@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>Jellyfin.Plugin.CoverArtArchive</RootNamespace>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <FileVersion>4.0.0.0</FileVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Nullable>enable</Nullable>
@@ -15,6 +15,8 @@
   <ItemGroup>
     <PackageReference Include="Jellyfin.Controller" Version="10.*-*" />
     <PackageReference Include="Jellyfin.Model" Version="10.*-*" />
+    <PackageReference Include="MetaBrainz.Common.Json" Version="5.0.0" />
+    <PackageReference Include="MetaBrainz.MusicBrainz.CoverArt" Version="4.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
   </ItemGroup>
 
@@ -23,11 +25,6 @@
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
     <PackageReference Include="SmartAnalyzers.MultithreadingAnalyzer" Version="1.1.31" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.*" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <None Remove="Configuration\configPage.html" />
-    <EmbeddedResource Include="Configuration\configPage.html" />
   </ItemGroup>
 
 </Project>

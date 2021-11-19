@@ -12,6 +12,8 @@ category: "Metadata"
 owner: "jellyfin"
 artifacts:
   - "Jellyfin.Plugin.CoverArtArchive.dll"
+  - "MetaBrainz.Common.Json.dll"
+  - "MetaBrainz.MusicBrainz.CoverArt.dll"
 changelog: |2-
   ### Code or Repo Maintenance ###
   - 10.8 support (#13) @crobibero
