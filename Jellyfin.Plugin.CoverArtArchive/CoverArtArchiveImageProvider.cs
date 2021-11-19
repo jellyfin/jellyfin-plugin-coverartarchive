@@ -21,7 +21,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
     /// <summary>
     /// The cover art archive image provider.
     /// </summary>
-    public class CoverArtArchiveImageProvider : IRemoteImageProvider
+    public class CoverArtArchiveImageProvider : IRemoteImageProvider, IDisposable
     {
         private readonly ILogger<CoverArtArchiveImageProvider> _logger;
         private readonly IHttpClientFactory _httpClientFactory;
@@ -136,6 +136,25 @@ namespace Jellyfin.Plugin.CoverArtArchive
             }
 
             return list;
+        }
+
+        /// <inheritdoc />
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Dispose all properties.
+        /// </summary>
+        /// <param name="disposing">Whether to dispose.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _coverArtClient?.Dispose();
+            }
         }
     }
 }
