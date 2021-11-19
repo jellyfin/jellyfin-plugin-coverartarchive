@@ -17,14 +17,14 @@
     <PackageReference Include="Jellyfin.Model" Version="10.*-*" />
     <PackageReference Include="MetaBrainz.Common.Json" Version="5.0.0" />
     <PackageReference Include="MetaBrainz.MusicBrainz.CoverArt" Version="4.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="SerilogAnalyzer" Version="0.15.0" PrivateAssets="All" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
     <PackageReference Include="SmartAnalyzers.MultithreadingAnalyzer" Version="1.1.31" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="5.*" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.*" />
   </ItemGroup>
 
 </Project>
