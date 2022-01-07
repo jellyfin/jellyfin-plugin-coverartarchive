@@ -40,7 +40,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
             _httpClientFactory = httpClientFactory;
             _logger = logger;
 
-            _coverArtClient = new CoverArt("Jellyfin Cover Art Archive Plugin", Assembly.GetExecutingAssembly().GetName().Version!.ToString(), "apps@jellyfin.org");
+            _coverArtClient = new CoverArt("Jellyfin Cover Art Archive Plugin", Assembly.GetExecutingAssembly().GetName().Version!.ToString(), "https://jellyfin.org");
         }
 
         /// <inheritdoc />
