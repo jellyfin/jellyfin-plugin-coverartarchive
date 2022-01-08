@@ -1,7 +1,7 @@
 name: "Cover Art Archive"
 guid: "8119f3c6-cfc2-4d9c-a0ba-028f1d93e526"
 imageUrl: "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-coverartarchive.png"
-version: "6"
+version: "7"
 targetAbi: "10.8.0.0"
 framework: "net6.0"
 overview: "MusicBrainz Cover Art Archive"
@@ -16,4 +16,7 @@ artifacts:
   - "MetaBrainz.MusicBrainz.CoverArt.dll"
 changelog: |2-
   ### Bug Fixes ###
-  - Fix contact uri (#17) @crobibero
+  - fix client string (#19) @Shadowghost
+
+  ### Code or Repo Maintenance ###
+  - Fix readme (#20) @Shadowghost
