@@ -1,7 +1,7 @@
 name: "Cover Art Archive"
 guid: "8119f3c6-cfc2-4d9c-a0ba-028f1d93e526"
 imageUrl: "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-coverartarchive.png"
-version: "5"
+version: "6"
 targetAbi: "10.8.0.0"
 framework: "net6.0"
 overview: "MusicBrainz Cover Art Archive"
@@ -15,8 +15,5 @@ artifacts:
   - "MetaBrainz.Common.Json.dll"
   - "MetaBrainz.MusicBrainz.CoverArt.dll"
 changelog: |2-
-  ### Major features and improvements ###
-  - Remove configuration page and migrate to MetaBrainz.MusicBrainz.CoverArt (#12) @MrTimscampi
-
-  ### Dependency updates ###
-  - chore(deps): bump Microsoft.Extensions.Http from 5.0.0 to 6.0.0 (#14) @dependabot
+  ### Bug Fixes ###
+  - Fix contact uri (#17) @crobibero
