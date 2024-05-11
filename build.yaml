@@ -1,7 +1,7 @@
 name: "Cover Art Archive"
 guid: "8119f3c6-cfc2-4d9c-a0ba-028f1d93e526"
 imageUrl: "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-coverartarchive.png"
-version: "8"
+version: 8
 targetAbi: "10.9.0.0"
 framework: "net8.0"
 overview: "MusicBrainz Cover Art Archive"
@@ -14,4 +14,19 @@ artifacts:
   - "Jellyfin.Plugin.CoverArtArchive.dll"
   - "MetaBrainz.Common.Json.dll"
   - "MetaBrainz.MusicBrainz.CoverArt.dll"
-changelog: |2-
+changelog: |-
+  - 10.9 (#35) @crobibero
+
+  ### Bug Fixes ###
+  - Check if the Types is flagged as 'Front' (#33) @GaaH
+
+  ### Code or Repo Maintenance ###
+  - Update link to Jellyfin website (#34) @methbkts
+  - Use meta ci (#27) @crobibero
+
+  ### Dependency updates ###
+  - chore(deps): update dependency metabrainz.common.json to v5.1.0 (#30) @renovate
+
+  ### CI & build changes ###
+  - fix: ci bumps (#29) @h1dden-da3m0n
+  - Use meta ci (#27) @crobibero
