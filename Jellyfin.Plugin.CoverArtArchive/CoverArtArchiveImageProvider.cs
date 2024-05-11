@@ -79,7 +79,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
             {
                 try
                 {
-                    var release = await _coverArtClient.FetchReleaseAsync(Guid.Parse(musicBrainzId)).ConfigureAwait(false);
+                    var release = await _coverArtClient.FetchReleaseAsync(Guid.Parse(musicBrainzId), cancellationToken).ConfigureAwait(false);
 
                     var frontImage = release.Images.FirstOrDefault(image => image.Types == CoverArtType.Front);
 
@@ -110,7 +110,7 @@ namespace Jellyfin.Plugin.CoverArtArchive
                 {
                     try
                     {
-                        var release = await _coverArtClient.FetchGroupReleaseAsync(Guid.Parse(musicBrainzGroupId)).ConfigureAwait(false);
+                        var release = await _coverArtClient.FetchGroupReleaseAsync(Guid.Parse(musicBrainzGroupId), cancellationToken).ConfigureAwait(false);
 
                         var frontImage = release.Images.FirstOrDefault(image => image.Types.HasFlag(CoverArtType.Front));
 
