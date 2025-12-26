@@ -1,8 +1,8 @@
 name: "Cover Art Archive"
 guid: "8119f3c6-cfc2-4d9c-a0ba-028f1d93e526"
 imageUrl: "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-coverartarchive.png"
-version: 9
-targetAbi: "10.11.0.0"
+version: 10
+targetAbi: "10.11.5.0"
 framework: "net9.0"
 overview: "MusicBrainz Cover Art Archive"
 description: >
@@ -14,5 +14,7 @@ artifacts:
   - "Jellyfin.Plugin.CoverArtArchive.dll"
   - "MetaBrainz.Common.Json.dll"
   - "MetaBrainz.MusicBrainz.CoverArt.dll"
-changelog: |-
-  - Jellyfin 10.11 support (#39) @crobibero
+changelog: |2-
+
+  ### Dependency updates ###
+  - Update dependency Microsoft.Extensions.Http to v10 (#41) @[renovate[bot]](https://github.com/apps/renovate)
