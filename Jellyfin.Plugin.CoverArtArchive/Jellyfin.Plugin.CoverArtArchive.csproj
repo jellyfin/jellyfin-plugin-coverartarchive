@@ -15,7 +15,7 @@
     <PackageReference Include="Jellyfin.Model" Version="10.*-*" />
     <PackageReference Include="MetaBrainz.Common.Json" Version="7.1.0" />
     <PackageReference Include="MetaBrainz.MusicBrainz.CoverArt" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.2" />
   </ItemGroup>
 
   <ItemGroup>
