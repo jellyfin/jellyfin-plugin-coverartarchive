@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Jellyfin.Controller" Version="10.*-*" />
-    <PackageReference Include="Jellyfin.Model" Version="10.*-*" />
+    <PackageReference Include="Jellyfin.Controller" Version="12.*-*" />
+    <PackageReference Include="Jellyfin.Model" Version="12.*-*" />
     <PackageReference Include="MetaBrainz.Common.Json" Version="7.1.0" />
     <PackageReference Include="MetaBrainz.MusicBrainz.CoverArt" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0" />
