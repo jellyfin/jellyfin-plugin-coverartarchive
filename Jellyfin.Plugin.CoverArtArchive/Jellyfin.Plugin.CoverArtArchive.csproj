@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>Jellyfin.Plugin.CoverArtArchive</RootNamespace>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -11,11 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Jellyfin.Controller" Version="10.*-*" />
-    <PackageReference Include="Jellyfin.Model" Version="10.*-*" />
+    <PackageReference Include="Jellyfin.Controller" Version="12.*-*" />
+    <PackageReference Include="Jellyfin.Model" Version="12.*-*" />
     <PackageReference Include="MetaBrainz.Common.Json" Version="7.2.0" />
     <PackageReference Include="MetaBrainz.MusicBrainz.CoverArt" Version="7.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
